@@ -82,11 +82,11 @@
   transition: all 0.3s ease-out;
 }
 .section__hero {
-  background: url(../images/hero-bg-8.jpg) center bottom no-repeat fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background: url(../images/hero-bg-8.jpg) center bottom no-repeat;
+  -webkit-background-size: auto auto;
+  -moz-background-size: auto auto;
+  -o-background-size: auto auto;
+  background-size: auto auto;
   padding: 150px 0 0 0;
   text-align: left;
 }

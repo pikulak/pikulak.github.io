@@ -91,3 +91,13 @@ function onScrollInit( items, elemTrigger ) {
 }
 
 setTimeout(function() { onScrollInit($('.waypoint')) }, 10);
+
+function calcVH() {
+    $('.section').innerHeight( $(this).innerHeight() );
+}
+(function($) {
+    calcVH();
+    $(window).on('orientationchange', function() {
+        calcVH();
+    });
+})(jQuery);
