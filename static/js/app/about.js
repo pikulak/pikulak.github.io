@@ -3,8 +3,8 @@ app.about = {};
 app.about = {
 
     init: function() {
+        splitHeadings();
         blastHeadings();
-        animateBlastedHeadings();
 
         afterHeadingsAnimation(function () {
             animateParagraph();
@@ -13,7 +13,7 @@ app.about = {
     }
 };
 
-function blastHeadings(){
+function splitHeadings(){
     $("#about h1").blast({
         delimiter: "character",
         tag: "span"
@@ -25,7 +25,7 @@ function blastHeadings(){
     });
 }
 
-function animateBlastedHeadings(){
+function blastHeadings(){
     var a = 0;
     $("#about .blast").each(function () {
         var el = $(this);
