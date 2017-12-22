@@ -106,9 +106,20 @@ $(function() {
             $(this).height(h);
         })
     }
-
+    /*
+        Substract navbar's height from hero section
+     */
+    function recalculateHeroHeight(){
+        var navbarHeight = $('#navbar').outerHeight();
+        var sectionHero = $('.section__hero');
+        sectionHero.each(function () {
+            var oldHeight = $(this).height();
+            $(this).height(oldHeight - navbarHeight);
+        })
+    }
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         isMobile = true;
         recalculateViewportHeight();
+        recalculateHeroHeight();
     }
 });
