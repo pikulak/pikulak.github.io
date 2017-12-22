@@ -13,6 +13,17 @@ $.fn.extend({
 
 $(function() {
 
+    function getNavbarHeight(){
+        return $('#navbar').outerHeight();
+    }
+
+    var initScrollSpy = function(){
+        $("body").scrollspy({
+            target: '#navbar',
+            offset: getNavbarHeight()
+        })
+    }();
+
     $("#about h1").blast({
         delimiter: "character",
         tag: "span"
@@ -57,10 +68,12 @@ $(function() {
         $(".active").removeClass("active");
         $(this).addClass("active");
         $("body").scrollspy('dispose');
-
+        var navbarHeight = getNavbarHeight();
         var hash = this.hash;
+        var scrollTopPosition = $(hash).offset().top - navbarHeight;
+        console.log(scrollTopPosition);
         $('html, body').animate({
-            scrollTop: $(hash).offset().top
+            scrollTop: scrollTopPosition
         }, 250, function () {
             window.location.hash = hash;
             //start scrollspy again
@@ -110,7 +123,7 @@ $(function() {
         Substract navbar's height from hero section
      */
     function recalculateHeroHeight(){
-        var navbarHeight = $('#navbar').outerHeight();
+        var navbarHeight = getNavbarHeight();
         var sectionHero = $('.section__hero');
         sectionHero.each(function () {
             var oldHeight = $(this).height();
