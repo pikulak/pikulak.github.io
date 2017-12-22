@@ -96,8 +96,12 @@ $(function() {
         onScrollInit($('.waypoint'))
     }, 10);
 
-    function recalculateSectionHeightMobile() {
-        $('.section').each(function () {
+    /*
+        Dynamically recalculate 100vh, due to mobile browser issues
+        with URL bar (when URL bar hides then 100vh value changes)
+     */
+    function recalculateViewportHeight() {
+        $('.full-vh').each(function () {
             var h = window.innerHeight;
             $(this).height(h);
         })
@@ -105,8 +109,6 @@ $(function() {
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         isMobile = true;
-        //window.onresize = recalculateSectionHeightMobile;
-        recalculateSectionHeightMobile();
+        recalculateViewportHeight();
     }
-
 });
