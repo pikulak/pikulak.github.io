@@ -68,7 +68,8 @@ $(function() {
         $("body").scrollspy('dispose');
 
         var hash = this.hash;
-        var scrollTopPosition = $(hash).offset().top - getNavbarHeight();
+        // we have to substract one pixel due to a little bug on mobile chrome browsers
+        var scrollTopPosition = $(hash).offset().top - getNavbarHeight() + 1;
 
         $('html, body').animate({
             scrollTop: scrollTopPosition
