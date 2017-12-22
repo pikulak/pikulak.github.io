@@ -22,8 +22,8 @@ $(function() {
             target: '#navbar',
             offset: getNavbarHeight()
         })
-    }();
-
+    };
+    initScrollSpy();
     $("#about h1").blast({
         delimiter: "character",
         tag: "span"
@@ -62,27 +62,24 @@ $(function() {
     }, 1700);
 
     $("a[href^='#']").on('click', function (e) {
-        e.preventDefault();
-
-        //stop scrollspy when animation starts (it causes unexpected behaviours)
+        // stop scrollspy when animation starts (it causes unexpected behaviours)
         $(".active").removeClass("active");
         $(this).addClass("active");
         $("body").scrollspy('dispose');
-        var navbarHeight = getNavbarHeight();
+
         var hash = this.hash;
-        var scrollTopPosition = $(hash).offset().top - navbarHeight;
-        console.log(scrollTopPosition);
+        var scrollTopPosition = $(hash).offset().top - getNavbarHeight();
+
         $('html, body').animate({
             scrollTop: scrollTopPosition
         }, 250, function () {
-            window.location.hash = hash;
-            //start scrollspy again
-            $("body").scrollspy('refresh');
+            // start scrollspy again
+            initScrollSpy();
         });
     });
 
     function onScrollInit(items, elemTrigger) {
-        var offset = window.innerHeight - 10;
+        var offset = window.innerHeight;
         items.each(function () {
             var elem = $(this),
                 animationClass = elem.attr('data-animation'),
