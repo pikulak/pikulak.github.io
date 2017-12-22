@@ -4,7 +4,7 @@ app.about = {
 
     init: function() {
         splitHeadings();
-        blastHeadings();
+        animateElements("#about .blast", "bounceIn", 100);
 
         afterHeadingsAnimation(function () {
             animateParagraph();
@@ -22,17 +22,6 @@ function splitHeadings(){
     $("#about h2").blast({
         delimiter: "word",
         tag: "span"
-    });
-}
-
-function blastHeadings(){
-    var a = 0;
-    $("#about .blast").each(function () {
-        var el = $(this);
-        setTimeout(function () {
-            el.addClass("animated bounceIn")
-        }, a);
-        a = a + 100;
     });
 }
 
