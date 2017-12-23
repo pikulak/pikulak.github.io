@@ -5,7 +5,7 @@ $(function() {
          */
         app.recalculateViewportHeight();
         // Substract navbar's height from hero section
-        app.recalculateHeroHeight();
+        //app.recalculateHeroHeight();
     }
     app.initScrollSpy();
     app.initSmoothScroll();
