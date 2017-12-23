@@ -58,7 +58,7 @@
 .blast{
   display: inline-block;
 }
-#about .blast, #about p {
+#home .blast, #about p {
   opacity: 0;
   display: inline-block;
   -webkit-transition: all 0.3s ease-out;

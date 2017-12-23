@@ -18,7 +18,6 @@ app = {
             var hash = this.hash;
             // we have to substract one pixel due to a little bug on mobile chrome browsers
             var scrollTopPosition = $(hash).offset().top - app.getNavbarHeight() + 1;
-            console.log(app.getNavbarHeight());
             $('html, body').animate({
                 scrollTop: scrollTopPosition
             }, 250, function () {

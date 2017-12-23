@@ -10,5 +10,5 @@ $(function() {
     app.initScrollSpy();
     app.initSmoothScroll();
     app.initAnimationWaypoints();
-    app.about.init();
+    app.home.init();
 });
