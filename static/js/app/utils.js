@@ -12,3 +12,7 @@ function animateElements(selector, animationName, timeStep){
         i += timeStep;
     })
 }
+
+function chooseRandomElement(array){
+    return array[Math.floor((Math.random() * array.length))];
+}
