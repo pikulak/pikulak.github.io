@@ -7,11 +7,11 @@ app.home = {
         this.backgroundAnimation.init();
         this.splitHeader();
         var blastAnimationDurationTime = animateElements(
-            "#home .blast", "bounceIn", 500, 50
+            "#home .blast", "bounceIn", 100, 50
         );
         setTimeout(function () {
             animateElements("#home h1:nth-of-type(2)", "slideInUp", 0, 10);
-        }, blastAnimationDurationTime)
+        }, blastAnimationDurationTime + 500)
     },
     splitHeader: function () {
         $("#home h1:nth-of-type(1)").blast({
