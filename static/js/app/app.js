@@ -76,7 +76,7 @@ app = {
     },
     recalculateViewportHeight: function () {
         $('.full-vh').each(function () {
-            $(this).height(window.outerHeight);
+            $(this).height(window.innerHeight);
         })
     },
     recalculateHeroHeight: function () {

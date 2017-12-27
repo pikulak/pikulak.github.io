@@ -12,7 +12,6 @@ function animateElements(selector, animationName, timeOffset, timeStep) {
                     $(element).css({"visibility": "visible"})
                 });
             }, i);
-            console.log(i);
             i += timeStep;
         });
     }, timeOffset);
