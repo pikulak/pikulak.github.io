@@ -25,6 +25,12 @@ canvas {
   top: 0;
   left: 0;
 }
+
+#home h1 {
+  visibility: hidden;
+  z-index: 1;
+}
+
 .navbar {
   box-shadow: 0 5px 5px -5px rgba(0,0,0,.5);
   -webkit-box-shadow: 0 5px 5px -5px rgba(0,0,0,.5);
@@ -66,18 +72,9 @@ canvas {
   width: 80px;
   height: 4px;
 }
-.blast{
-  display: inline-block;
-}
-#home .blast, #about p {
-  opacity: 0;
-  display: inline-block;
-  -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-}
+
 .section__hero {
   padding: 0;
-
 }
 
 .flex {
@@ -86,6 +83,7 @@ canvas {
   justify-content: center;
   align-items: center;
 }
+
 @media (max-width: 991px){
   html {
     font-size: 12px;

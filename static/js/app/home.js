@@ -1,20 +1,28 @@
 app.home = {};
 
 app.home = {
+    backgroundAnimation: new ThreeJSBackgroundAnimation(),
 
     init: function() {
         this.backgroundAnimation.init();
-        splitHeadings();
-        animateElements("#home .blast", "bounceIn", 50);
-
-        afterHeadingsAnimation(function () {
-            animateElements("#home p", "slideInUp", 10);
-        })
+        this.splitHeader();
+        // we add 1000ms because
+        var headerAnimationDurationTime = animateElements(
+            "#home .blast", "bounceIn", 50
+        );
+        setTimeout(function () {
+            animateElements("#home h1:nth-of-type(2)", "slideInUp", 10);
+        }, headerAnimationDurationTime)
     },
-    backgroundAnimation: new ThreeJSHeroAnimation()
+    splitHeader: function () {
+        $("#home h1:nth-of-type(1)").blast({
+            delimiter: "character",
+            tag: "span"
+        });
+    }
 };
 
-function ThreeJSHeroAnimation() {
+function ThreeJSBackgroundAnimation() {
     this.container = $("#heroAnimation");
     this.camera = new THREE.PerspectiveCamera(
         70, window.innerWidth / window.innerHeight, 1, 10000
@@ -35,7 +43,7 @@ function ThreeJSHeroAnimation() {
         this._configure();
         this._generateGroupOfShapes();
         this.render();
-        window.addEventListener('resize', this.onWindowResize, false);
+        window.addEventListener('resize', this.onWindowResize.bind(this), false);
     };
 
 
@@ -87,21 +95,3 @@ function ThreeJSHeroAnimation() {
         return chooseRandomElement(choices);
     };
 }
-
-function splitHeadings(){
-    $("#home h1").blast({
-        delimiter: "character",
-        tag: "span"
-    });
-
-    $("#home h2").blast({
-        delimiter: "word",
-        tag: "span"
-    });
-}
-
-
-function afterHeadingsAnimation(cb){
-    setTimeout(cb, 1500);
-}
-

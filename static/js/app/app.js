@@ -2,14 +2,31 @@ var app = {};
 
 
 app = {
+
+    isMobile: false,
+
+    init: function () {
+        if (app.isMobile) {
+            /* Dynamically recalculate 100vh, due to mobile browser issues
+               with URL bar (when URL bar hides then 100vh value changes)
+           */
+            this.recalculateViewportHeight();
+            // Subtract navbar's height from hero section
+            // this.recalculateHeroHeight();
+        }
+        this.initScrollSpy();
+        this.initSmoothScroll();
+        this.initAnimationWaypoints();
+        this.home.init();
+    },
     initScrollSpy: function () {
         $("body").scrollspy({
             target: '#navbar',
-            offset: app.getNavbarHeight()
+            offset: this.getNavbarHeight()
         })
     },
     initSmoothScroll: function () {
-        $("a[href^='#']").on('click', function (e) {
+        $("a[href^='#']").on('click', function () {
             // stop scrollspy when animation starts (it causes unexpected behaviours)
             $(".active").removeClass("active");
             $(this).addClass("active");
@@ -55,13 +72,11 @@ app = {
     },
     recalculateViewportHeight: function () {
         $('.full-vh').each(function () {
-            var h = window.innerHeight;
-            $(this).height(h);
+            $(this).height(window.innerHeight);
         })
     },
     recalculateHeroHeight: function () {
-        var sectionHero = $('.section__hero');
-        sectionHero.each(function () {
+        $('.section__hero').each(function () {
             var oldHeight = $(this).height();
             $(this).height(oldHeight - app.getNavbarHeight());
         })
@@ -70,6 +85,7 @@ app = {
         return $('#navbar').outerHeight();
     }
 };
+
 
 $.fn.extend({
     animateCss: function (animationName, callback) {
