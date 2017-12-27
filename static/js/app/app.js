@@ -11,6 +11,10 @@ app = {
                with URL bar (when URL bar hides then 100vh value changes)
            */
             this.recalculateViewportHeight();
+            window.addEventListener("orientationchange",
+                function(){
+                    setTimeout(this.recalculateViewportHeight, 0);
+                }.bind(this));
             // Subtract navbar's height from hero section
             // this.recalculateHeroHeight();
         }
@@ -72,7 +76,7 @@ app = {
     },
     recalculateViewportHeight: function () {
         $('.full-vh').each(function () {
-            $(this).height(window.innerHeight);
+            $(this).height(window.outerHeight);
         })
     },
     recalculateHeroHeight: function () {
