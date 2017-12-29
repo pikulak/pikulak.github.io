@@ -29,6 +29,17 @@ canvas {
 span {
   display: inline-block;
 }
+
+.visible {
+  opacity: 1 !important;
+}
+.hidden {
+  opacity: 0;
+}
+
+#home span{
+  opacity: 0;
+}
 #home h1{
   z-index:1;
 }
