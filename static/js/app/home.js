@@ -18,7 +18,6 @@ app.home = {
 
 function ThreeJSBackgroundAnimation() {
     this.container = $("#heroAnimation");
-    this.numberOfCubes = app.isMobile ? 20: 40;
     this.camera = new THREE.PerspectiveCamera(
         70, window.innerWidth / window.innerHeight, 1, 10000
     );
@@ -31,10 +30,10 @@ function ThreeJSBackgroundAnimation() {
     });
     this.scene = new THREE.Scene();
     this.group = new THREE.Group();
-
+    this.numberOfCubes = {};
+    this.renderer = {};
 
     this.init = function () {
-        this.renderer = this._getRenderer({antialias: true});
         this._configure();
         this._generateGroupOfShapes();
         this.animate();
@@ -83,6 +82,8 @@ function ThreeJSBackgroundAnimation() {
 
 
     this._configure = function () {
+        this.numberOfCubes = app.isMobile ? 20: 40;
+        this.renderer = this._getRenderer({antialias: true});
         this.scene.background = new THREE.Color(0x343a40);
         this.camera.position.z = 1000;
         this.renderer.setPixelRatio(window.devicePixelRatio);
