@@ -31,10 +31,10 @@ function ThreeJSBackgroundAnimation() {
     });
     this.scene = new THREE.Scene();
     this.group = new THREE.Group();
-    this.renderer = new THREE.WebGLRenderer({antialias: true});
 
 
     this.init = function () {
+        this.renderer = this._getRenderer({antialias: true});
         this._configure();
         this._generateGroupOfShapes();
         this.animate();
@@ -70,6 +70,15 @@ function ThreeJSBackgroundAnimation() {
     this.animate = function () {
         requestAnimationFrame(this.animate.bind(this));
         this.render();
+    };
+
+
+    this._getRenderer = function(args){
+        if (isWebglAvailable()){
+            return new THREE.WebGLRenderer(args);
+        } else {
+            return new THREE.CanvasRenderer(args);
+        }
     };
 
 
