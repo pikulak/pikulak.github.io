@@ -5,19 +5,14 @@ app.home = {
 
     init: function() {
         this.backgroundAnimation.init();
-        this.splitHeader();
-        var blastAnimationDurationTime = animateElements(
-            "#home .blast", "bounceIn", 100, 50
-        );
-        setTimeout(function () {
-            animateElements("#home h1:nth-of-type(2)", "slideInUp", 0, 10);
-        }, blastAnimationDurationTime + 500)
+        this.animateHeader();
     },
-    splitHeader: function () {
-        $("#home h1:nth-of-type(1)").blast({
-            delimiter: "character",
-            tag: "span"
-        });
+    animateHeader: function () {
+        animateElements("#home h1 span:nth-of-type(1)", "bounceInDown", 200, 0);
+        animateElements("#home h1 span:nth-of-type(2)", "bounceInDown", 800, 0);
+        animateElements("#home h1 span:nth-of-type(3)", "bounceInDown", 1000, 0);
+        animateElements("#home h1 span:nth-of-type(4)", "bounceInUp", 2200, 0);
+
     }
 };
 

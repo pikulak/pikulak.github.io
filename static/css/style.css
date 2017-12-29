@@ -21,21 +21,21 @@
 }
 
 canvas {
+  z-index: 0;
   position: absolute;
   top: 0;
   left: 0;
 }
-
-#home h1 {
-  visibility: hidden;
-  z-index: 1;
+span {
+  display: inline-block;
 }
-
+#home h1{
+  z-index:1;
+}
 .navbar {
   box-shadow: 0 5px 5px -5px rgba(0,0,0,.5);
   -webkit-box-shadow: 0 5px 5px -5px rgba(0,0,0,.5);
   opacity: 0;
-
 }
 .nav-link {
   color: #343a40;

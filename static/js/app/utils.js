@@ -3,18 +3,13 @@ function isMobile() {
 }
 
 function animateElements(selector, animationName, timeOffset, timeStep) {
-    var i = 0;
-    setTimeout(function () {
-        $(selector).each(function () {
-            var element = $(this);
-            setTimeout(function () {
-                element.animateCss(animationName, function () {
-                    $(element).css({"visibility": "visible"})
-                });
-            }, i);
-            i += timeStep;
-        });
-    }, timeOffset);
+    $(selector).each(function () {
+        $(this).css({"opacity": 0});
+        setTimeout(function () {
+            $(this).css({"opacity": 1})
+                .animateCss(animationName);
+        }.bind(this), timeOffset)
+    });
 
     /*  Return animation duration time.
         We add 1000ms because last animation performs for 1s (defined in Animate.css).
