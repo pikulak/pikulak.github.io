@@ -19,7 +19,7 @@ function isWebglAvailable() {
 
 function animateElements(selector, animationName, timeOffset, classProp) {
     $(selector).each(function () {
-        setTimeout(function () {
+        requestTimeout(function () {
             if (classProp) $(this).prop("class", classProp);
             $(this).animateCss(animationName);
         }.bind(this), timeOffset)
