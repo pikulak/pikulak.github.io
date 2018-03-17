@@ -18,7 +18,7 @@ app = {
             // Subtract navbar's height from hero section
             // this.recalculateHeroHeight();
         }
-        this.initScrollSpy();
+        //this.initScrollSpy();
         this.initSmoothScroll();
         this.initAnimationWaypoints();
         this.home.init();
@@ -32,18 +32,18 @@ app = {
     initSmoothScroll: function () {
         $("a[href^='#']").on('click', function () {
             // stop scrollspy when animation starts (it causes unexpected behaviours)
-            $(".active").removeClass("active");
-            $(this).addClass("active");
-            $("body").scrollspy('dispose');
+            // $(".active").removeClass("active");
+            // $(this).addClass("active");
+            // $("body").scrollspy('dispose');
 
             var hash = this.hash;
             // we have to substract one pixel due to a little bug on mobile chrome browsers
-            var scrollTopPosition = $(hash).offset().top - app.getNavbarHeight() + 1;
+            var scrollTopPosition = $(hash).offset().top - 1;
             $('html, body').animate({
                 scrollTop: scrollTopPosition
             }, 250, function () {
                 // start scrollspy again
-                app.initScrollSpy();
+                // app.initScrollSpy();
             });
         });
     },
