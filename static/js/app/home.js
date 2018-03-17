@@ -6,6 +6,12 @@ app.home = {
     init: function() {
         this.backgroundAnimation.init();
         this.animateHeader();
+        this.bounceArrow();
+    },
+    bounceArrow: function() {
+        $('.hero__arrow-container').removeClass('animated bounce').delay(2000).queue(function() {
+            $(this).addClass('animated bounce');
+        });
     },
     animateHeader: function () {
         animateElements("#home h1 span:nth-of-type(1)", "bounceInDown", 200, "visible");
@@ -82,7 +88,7 @@ function ThreeJSBackgroundAnimation() {
 
 
     this._configure = function () {
-        this.numberOfCubes = app.isMobile ? 20: 40;
+        this.numberOfCubes = app.isMobile ? 10: 10;
         this.renderer = this._getRenderer({antialias: true});
         this.scene.background = new THREE.Color(0x343a40);
         this.camera.position.z = 1000;

@@ -71,7 +71,7 @@
                 <span class="hidden">Jestem web developerem.</span>
             </h1>
         </div>
-        <div class="hero__arrow-container">
+        <div class="hero__arrow-container animated bounce">
             <a href="#kontakt">
                 <img src="static/images/arrow_down.svg" class="hero__arrow-icon"/>
             </a>
@@ -108,7 +108,8 @@
                         <header class="contact-form__header text-center">
                             <h3>Napisz wiadomość</h3>
                         </header>
-                        <form action="https://formspree.io/kacper.pikulski@outlook.com" method="POST">
+                        <br>
+                        <form action="https://formspree.io/kacper.pikulski@outlook.com" method="POST" class="text-left">
                             <div class="form-group">
                                 <label for="msgInputEmail">Adres e-mail:</label>
                                 <input class="form-control" id="msgInputEmail" aria-describedby="emailHelp" placeholder="Podaj swój adres e-mail" name="email" required="" type="email">
@@ -121,7 +122,7 @@
                                 <label for="msgContent">Treść:</label>
                                 <textarea class="form-control" id="msgContent" rows="5" placeholder="Podaj treść wiadomości" name="content" required=""></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                            <button type="submit" class="btn btn-success btn-lg btn-block">
                                 <span class="serif">Wyślij</span>
                             </button>
                             <input name="_next" value="/" type="hidden">
