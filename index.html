@@ -102,6 +102,33 @@
             <h1 class="display-4 waypoint" data-animation="slideInLeft">Kontakt</h1>
             <hr class="my-4 bg-dark header-bar waypoint" data-animation="slideInRight" data-delay=".25s">
             <div class="waypoint" data-animation="slideInRight" data-delay="0.5s"></div>
+            <article>
+                <div class="row justify-content-center contact-form__container">
+                    <div class="col-6">
+                        <header class="contact-form__header text-center">
+                            <h3>Napisz wiadomość</h3>
+                        </header>
+                        <form action="https://formspree.io/kacper.pikulski@outlook.com" method="POST">
+                            <div class="form-group">
+                                <label for="msgInputEmail">Adres e-mail:</label>
+                                <input class="form-control" id="msgInputEmail" aria-describedby="emailHelp" placeholder="Podaj swój adres e-mail" name="email" required="" type="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="msgInputSubject">Temat:</label>
+                                <input class="form-control" id="msgInputSubject" placeholder="Podaj temat" name="_subject" required="" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="msgContent">Treść:</label>
+                                <textarea class="form-control" id="msgContent" rows="5" placeholder="Podaj treść wiadomości" name="content" required=""></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                <span class="serif">Wyślij</span>
+                            </button>
+                            <input name="_next" value="/" type="hidden">
+                        </form>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
 </main>

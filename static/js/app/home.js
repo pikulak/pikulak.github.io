@@ -11,7 +11,7 @@ app.home = {
         animateElements("#home h1 span:nth-of-type(1)", "bounceInDown", 200, "visible");
         animateElements("#home h1 span:nth-of-type(2)", "bounceInDown", 800, "visible");
         animateElements("#home h1 span:nth-of-type(3)", "bounceInDown", 1000, "visible highlight");
-        animateElements("#home h1 span:nth-of-type(4)", "bounceInUp", 2200, "visible");
+        animateElements("#home h1 span:nth-of-type(4)", "bounceInDown", 2200, "visible");
 
     }
 };

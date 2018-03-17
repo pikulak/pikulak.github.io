@@ -60,6 +60,10 @@ span {
     fill: #ffffff;
 }
 
+.contact-form__container {
+    background-color: #f8f9fa;
+}
+
 .navbar {
     box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .5);
     -webkit-box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .5);
