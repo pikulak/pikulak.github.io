@@ -1,145 +1,139 @@
 <!DOCTYPE html>
+<html lang="pl">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, height=device-height,
-        initial-scale=1, maximum-scale=1, user-scalable=0"/>
-    <title>Kacper Pikulski - webdeveloper</title>
-    <link rel="icon" href="static/images/favicon.png">
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="static/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cechy dobrego kontrolera</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"
-            integrity="sha256-w49DIDk8itgSjjuoof5lTxYKwcjWJ7Z2sRW3nU1StNA=" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.min.js"
-            integrity="sha256-dhMyiyXEwZJ//9n8lUerz//P7hJX9SyNJZ5ZZ3Osozo=" crossorigin="anonymous">
-    </script>
-    <script src="static/js/vendor/requestTimeout.js"></script>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f3f3;
+            color: black;
+            margin: 0;
+            padding: 0;
+            max-width: 960px;
+            margin: auto;
+        }
+
+        .poster {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            border: 2px solid darkblue;
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: darkblue;
+            margin-bottom: 1.5rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature {
+            padding: 1rem;
+            border: 1px solid darkblue;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background-color: #f3f3f3;
+        }
+
+        .feature:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: darkblue;
+        }
+
+        .feature-description {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: black;
+        }
+
+        .summary {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: darkblue;
+            background-color: #f3f3f3;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .feature-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        @media print {
+            body {
+                width: 100%;
+                margin: 0;
+            }
+
+            .poster {
+                padding: 1rem;
+                box-shadow: none;
+            }
+        }
+    </style>
 </head>
-
-<!-- IN PROGRESS OF REFACTOR!-->
 <body>
-<!--
-<header>
-  <nav id="navbar" class="navbar fixed-top bg-light">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#home">
-          <h1 class="display-5 text-dark"><b>pikulski</b>.me</h1>
-        </a>
-      </div>
-      <ul id="nav" class="nav text-dark">
-        <li class="nav-item">
-          <a class="nav-link display-6" href="#about">O mnie</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link display-6" href="#offer">Oferta</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link display-6" href="#portfolio">Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link display-6" href="#contact">Kontakt</a>
-        </li>
-      </ul>
+<div class="poster">
+    <div class="title">Cechy dobrego kontrolera</div>
+    <div class="features">
+        <div class="feature">
+            <div class="feature-icon">🧠</div>
+            <p class="feature-header">Analityczne myślenie</p>
+            <p class="feature-description">Umiejętność analizowania danych i rozumienia złożonych problemów.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">📆</div>
+            <p class="feature-header">Umiejętność planowania i organizacji</p>
+            <p class="feature-description">Kierowanie zadaniami i projektami, zarządzanie czasem oraz priorytetami.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">👥</div>
+            <p class="feature-header">Komunikacja interpersonalna</p>
+            <p class="feature-description">Umiejętność skutecznego przekazywania informacji i współpracy z innymi.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🎯</div>
+            <p class="feature-header">Orientacja na cele</p>
+            <p class="feature-description">Skupienie na osiąganiu celów i wyznaczaniu priorytetów, by sprostać
+                wymaganiom.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🔍</div>
+            <p class="feature-header">Uważność na szczegóły</p>
+            <p class="feature-description">Zwracanie uwagi na detale i dbanie o wysoką jakość pracy.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">💡</div>
+            <p class="feature-header">Innowacyjność</p>
+            <p class="feature-description">Umiejętność wprowadzania nowych pomysłów i rozwiązań do pracy.</p>
+        </div>
     </div>
-  </nav>
-</header>
--->
-<main>
-    <section id="home" class="flex section__hero full-vh">
-        <div id="heroAnimation" class="heroAnimation"></div>
-        <div class="flex text-white text-center">
-            <h1 class="display-4">
-                <span class="hidden">Cześć,</span>
-                <span class="hidden">nazywam się</span>
-                <span class="hidden"><b>Kacper Pikulski</b></span>
-                <br>
-                <span class="hidden">Jestem web developerem.</span>
-            </h1>
-        </div>
-        <div class="hero__arrow-container animated bounce text-center text-white">
-            <p>Chcesz ze mną współpracować? Skontaktuj się ze mną!</p>
-            <a href="#kontakt">
-                <img src="static/images/arrow_down.svg" class="hero__arrow-icon"/>
-            </a>
-        </div>
-    </section>
-    <!--
-    <section id="about" class="section section__offer full-vh">
-      <div class="container">
-        <h1 class="display-4 waypoint" data-animation="slideInLeft">O mnie</h1>
-        <hr class="my-4 bg-dark header-bar waypoint" data-animation="slideInRight" data-delay=".25s">
-      </div>
-    </section>
-    <section id="offer" class="section bg-dark text-white section__offer full-vh">
-      <div class="container">
-        <h1 class="display-4 waypoint" data-animation="slideInLeft">Oferta</h1>
-        <hr class="my-4 bg-white header-bar waypoint" data-animation="slideInRight" data-delay=".25s">
-      </div>
-    </section>
-    <section id="portfolio" class="section section__portfolio">
-      <div class="container">
-        <h1 class="display-4 waypoint" data-animation="slideInLeft">Portfolio</h1>
-        <hr class="my-4 bg-dark header-bar waypoint" data-animation="slideInRight" data-delay=".25s">
-      </div>
-    </section>
-    !-->
-    <section id="kontakt" class="section section__contact full-vh">
-        <div class="container">
-            <h2 class="display-4 waypoint" data-animation="slideInLeft">Kontakt</h2>
-            <hr class="my-4 bg-dark header-bar waypoint" data-animation="slideInRight" data-delay=".25s">
-            <div class="waypoint" data-animation="slideInRight" data-delay="0.5s"></div>
-            <article>
-                <div class="row justify-content-center contact-form__container">
-                    <div class="col-12 col-xs-10 col-md-8 col-lg-7 col-xl-6">
-                        <header class="contact-form__header text-center">
-                            <h3>Napisz wiadomość</h3>
-                        </header>
-                        <br>
-                        <form action="https://formspree.io/kacper.pikulski@outlook.com" method="POST" class="text-left">
-                            <div class="form-group">
-                                <label for="msgInputEmail">Adres e-mail:</label>
-                                <input class="form-control" id="msgInputEmail" aria-describedby="emailHelp" placeholder="Podaj swój adres e-mail" name="email" required="" type="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="msgInputSubject">Temat:</label>
-                                <input class="form-control" id="msgInputSubject" placeholder="Podaj temat" name="_subject" required="" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label for="msgContent">Treść:</label>
-                                <textarea class="form-control" id="msgContent" rows="5" placeholder="Podaj treść wiadomości" name="content" required=""></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-success btn-lg btn-block">
-                                <span class="serif">Wyślij</span>
-                            </button>
-                            <input name="_next" value="/" type="hidden">
-                        </form>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
-</main>
-<script src="static/js/vendor/renderers/Projector.js"></script>
-<script src="static/js/vendor/renderers/CanvasRenderer.js"></script>
-<script src="static/js/app/utils.js"></script>
-<script src="static/js/app/app.js"></script>
-<script src="static/js/app/home.js"></script>
-<script src="static/js/main.js"></script>
+    <div class="summary">Dobry kontroler posiada umiejętności analityczne, planistyczne, komunikacyjne i jest
+        zorientowany na cele. Ważne są również uważność na szczegóły oraz innowacyjność.
+    </div>
+</div>
 </body>
-
 </html>
